@@ -16,15 +16,25 @@ $dictionary['dev_Online_Classes'] = array(
     'audited' => true,
     'activity_enabled' => false,
     'duplicate_merge' => true,
-    'fields' => array (
-),
-    'relationships' => array (
-),
+    'fields' =>
+    array(
+        'attendees_items' => array(
+            'name' => 'attendees_items',
+            'type' => 'collection',
+            'vname' => 'LBL_ATTENDEES',
+            'links' => array('dev_online_classes_contacts'),
+            'source' => 'non-db',
+            'hideacl' => true,
+        ),
+    ),
+    'relationships' => array(
+    ),
     'optimistic_locking' => true,
     'unified_search' => true,
     'full_text_search' => true,
 );
 
-if (!class_exists('VardefManager')){
+if (!class_exists('VardefManager')) {
+    
 }
-VardefManager::createVardef('dev_Online_Classes','dev_Online_Classes', array('basic','team_security','assignable','taggable'));
+VardefManager::createVardef('dev_Online_Classes', 'dev_Online_Classes', array('basic', 'team_security', 'assignable', 'taggable'));
